@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: ;
+    }
+    .task1{
+        background-image: url(https://tse1.mm.bing.net/th?id=OIP.kxz2MKlH765Xyz47qV_svwHaEo&pid=Api&P=0&h=180);
+        background-repeat:no-repeat;
+        padding: 30px;
+        color:white;
+        font-size: 20px;
+    }
+    .task2{
+        background-image: radial-gradient( circle 369px at -2.9% 12.9%,  rgba(247,234,163,1) 0%, rgba(236,180,238,0.56) 46.4%, rgba(163,203,247,1) 100.7% );
+        padding: 30px;
+    }
+    .task3{
+        background-image: url(https://tse4.mm.bing.net/th?id=OIP.swmdTXnk3MUtFFJD0WIDrwHaEo&pid=Api&P=0&h=180);
+        background-repeat: repeat;
+        padding: 60px;
+        color:aqua;
+        font-size: 50px;
+    }
+    .task4{  
+        background-image: radial-gradient( circle 420px at -10.9% -25.7%,  rgba(223,5,5,1) 0%, rgba(235,244,60,1) 90.5% );
+        font-size: 20px;
+        padding: 30px;
+    }
+    .task5{
+        background-image: radial-gradient( circle farthest-corner at 32.7% 82.7%,  rgba(173,0,171,1) 8.3%, rgba(15,51,92,1) 79.4% );
+        padding: 30px;
+        font-size: 20px;
+    }
+</style>
+<body>
+    <!-- Task 1: Filter and Display Long Words from an Array
+•Description: You are given an array of words. Filter the words that are longer than 5 characters and display them in an unordered list (<ul>) in the HTML.
+•Array Method: filter()
+•String Method: length
+•DOM Manipulation: Create an unordered list in the DOM and append filtered words as list items.
+•Example Input: ["apple", "banana", "grape", "watermelon", "kiwi", "strawberry"]
+•Example Output: A list in the DOM displaying:
+–watermelon
+–strawberry -->
+    <script>
+        arr= ["apple", "banana", "grape", "watermelon", "kiwi", "strawberry"];
+res=[];
+arr.filter(element=>{if(element.length>5){res.push(element)}});
+res.forEach((element)=>{
+    let ul=document.createElement("ul");
+    ul.className="task1";
+    document.body.appendChild(ul);
+    let list=document.createElement("li");
+    list.className="hello";
+    ul.appendChild(list);
+    list.innerText=element;
+})
+    </script>
+    <!-- Task 2: Capitalize and Display Strings from an Array
+    •Description: You are given an array of strings. Convert all the strings to uppercase and display them in a paragraph (<p>) in the HTML.
+    •Array Method: map()
+    •String Method: toUpperCase()
+    •DOM Manipulation: Create a paragraph element in the DOM and display the capitalized strings.
+    •Example Input: ["hello", "world", "javascript", "dom"]
+    •Example Output: A paragraph in the DOM displaying:
+    –HELLO WORLD JAVASCRIPT DOM -->
+    <script>
+    inp= ["hello", "world", "javascript", "dom"];
+res=inp.map(element=>element.toString().toUpperCase());
+    let p=document.createElement("p");
+    p.className="task2";
+    document.body.appendChild(p);
+    text=res.join("  ")
+    p.innerText=text;
+    </script>
+    <!-- Task 3: Join and Display Array Elements as a Sentence
+    •Description: You are given an array of words. Join the words together to form a sentence and display it in a div in the HTML.
+    •Array Method: join()
+    •String Method: None
+    •DOM Manipulation: Create a div in the DOM and display the sentence.
+    •Example Input: ["I", "am", "learning", "JavaScript", "today"]
+    •Example Output: A div in the DOM displaying:
+    –I am learning JavaScript today. -->
+    <script>
+        array= ["I", "am", "learning", "JavaScript", "today"];
+        res=array.join(" ");
+            let div1=document.createElement("div");
+            div1.className="task3"
+            document.body.appendChild(div1);
+            div1.innerText=res;
+    </script>
+    <!-- Task 4: Reverse Strings in an Array and Display Them
+    •Description: You are given an array of strings. Reverse each string and display them in a list (<ul>) in the HTML.
+    •Array Method: map()
+    •String Method: split(), reverse(), join()
+    •DOM Manipulation: Create an unordered list in the DOM and append reversed strings as list items.
+    •Example Input: ["dog", "cat", "bird", "fish"]
+    •Example Output: A list in the DOM displaying:
+    –god
+    –tac
+    –drib
+    –hsif -->
+    <script>
+        animal= ["dog", "cat", "bird", "fish"];
+        res=animal.map( element=>element.split("").reverse().join(""));
+        res.forEach((element=>{
+            let ulist=document.createElement("ul");
+            ulist.className="task4"
+            document.body.appendChild(ulist);
+            let li=document.createElement("li");
+            ulist.appendChild(li);
+            li.innerText=element;
+        }));
+    </script>
+    <!-- Task 5: Count and Display the Number of Vowels in Each Word
+    •Description: You are given an array of words. For each word, count the number of vowels and display the word along with its vowel count in a list (<ul>) in the HTML.
+    •Array Method: map()
+    •String Method: match()
+    •DOM Manipulation: Create an unordered list in the DOM and append each word with its vowel count.
+    •Example Input: ["apple", "banana", "grape"]
+    •Example Output: A list in the DOM displaying:
+    –apple (2 vowels)
+    –banana (3 vowels)
+    –grape (2 vowels) -->
+    <script>
+        fruits=["apple", "banana", "grape"];
+        arr=["a","e","i","o","u"];
+        function funa(){
+            res1=[];
+        for(var data of fruits){
+            res=data.split("");
+            count=0;
+            for(var data1 of res){
+                if(arr.includes(data1)){
+                    count++;
+                }
+            }
+            res1.push(`${data} (${count} vowels)`)};
+            res1.forEach(element=>{ let unlist=document.createElement("ul");
+            unlist.className="task5"
+                document.body.appendChild(unlist);
+                let list2=document.createElement("li");
+                unlist.appendChild(list2);
+                list2.innerHTML=element});
+        };
+        funa();
+    </script>
+</body>
+</html>
